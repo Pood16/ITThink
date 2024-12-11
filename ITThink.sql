@@ -85,6 +85,23 @@ VALUES (29.8, "2024-12-28 14:25:40", 3, 1);
 -- temouignage table 
 INSERT INTO temoignage (commentaire, id_utilisateur)
 VALUES ("Le travail n'est pas bien realiser alors je donne 2 etoiles", 3);
+-- update a project details
+UPDATE projects
+SET titre_projet = "dynamique web application"
+WHERE id_project = 1;
+-- delete temoignage
+DELETE FROM temoignage
+WHERE id_temoignage = 1;
+-- ajouter des temoignages
+INSERT INTO temoignage (commentaire, id_utilisateur)
+VALUES ("Le projet est bien realiser", 3),	
+	   ("Il n'a pas respecter Mes besoins, mauvaise experience", 2),
+       ("Tres bon travail, Je recommande ce profile", 1);
+-- inner join
+SELECT * FROM projects
+JOIN categories
+ON projects.id_project = categories.id_categorie;
+
 SELECT * FROM utilisateurs;
 SELECT * FROM categories;
 SELECT * FROM sousCategories;

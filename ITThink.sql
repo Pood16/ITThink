@@ -58,4 +58,38 @@ CREATE TABLE temoignage(
     id_utilisateur INT,
     FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id_utilisateur)
 );
+#ajouter un colonne dans un tableau
+ALTER TABLE projects
+ADD date_creation DATETIME;
+# ADD content to tables
+-- utilisateurs table
+INSERT INTO utilisateurs (nom_utilisateur, mot_de_passe, email, phone)
+VALUES ("ouirghane", "motDePasse", "gmail@gmail.com", "0622434965"),
+	   ("anas", "motDePasseY", "anass@gmail.com", "0622434785");
+-- categories table
+INSERT INTO categories(nom_categorie)
+VALUES ("WEB DEVELOPMENT"),("DESIGN");
+-- sous-categories
+INSERT INTO sousCategories(nom_sous_categorie, id_categorie)
+VALUES ("sous categorie 1", 2),
+	   ("sous categorie 2", 1);
+-- projects table
+INSERT INTO projects(titre_projet, description_projet, id_categorie, id_sous_categorie, id_utilisateur, date_creation)
+VALUES ("Responsive Quizz application", "application qui permet a l'utilisateur de passer des examens pour tester son niveau en francai", 2,1, 2, "2024-12-29 15:22:10");
+-- freelances table
+INSERT INTO freelances (nom_freelance, competences, id_utilisateur)
+VALUES ("Pood", "javascript css html5", 2);
+-- offre table
+INSERT INTO offres(montant, delai, id_freelance, id_project)
+VALUES (29.8, "2024-12-28 14:25:40", 3, 1);
+-- temouignage table 
+INSERT INTO temoignage (commentaire, id_utilisateur)
+VALUES ("Le travail n'est pas bien realiser alors je donne 2 etoiles", 3);
+SELECT * FROM utilisateurs;
+SELECT * FROM categories;
+SELECT * FROM sousCategories;
+SELECT * FROM freelances;
+SELECT * FROM offres;
+SELECT * FROM projects;
 SELECT * FROM temoignage;
+
